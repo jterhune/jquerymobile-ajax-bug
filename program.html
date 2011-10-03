@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>jQuery Mobile bug report</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="jquery.mobile.css"/>
+</head>
+
+<body>
+
+<div id="outer-container" data-role="page">
+
+<div class="summary">
+	<h1>Programs</h1>
+</div>
+<h2>Current Programs</h2>
+<a href="show1.html" data-ajax="false">Program 1</a><br/>
+<a href="show2.html" data-ajax="false">Program 2</a>
+
+<script src="jquery.js"></script>
+<script src="jquery.mobile.js"></script>
+<script>
+	$(document).bind("pagebeforechange", function(e, data) {
+		console.log('ooh, a pagebeforechange event!');
+	});
+
+	$(document).bind("pagechange", function(e, data) {
+		console.log('ooh, a pagechange event!');
+	});
+
+	$(document).bind("pagechangefailed", function(e, data) {
+		console.log('yuck, a pagechangefailed event!');
+	});
+</script>
+
+</body>
+
+</html>
